@@ -6,7 +6,7 @@ public class User
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
 
-    public ICollection<Investment>? Investments { get; }
+    public ICollection<Investment> Investments { get; } = new List<Investment>();
 
 
 }

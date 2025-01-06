@@ -20,7 +20,9 @@ public class Investment
     private DateTime PurchaseDate { get; set; }
     public InvestmentTerm InvestmentTerm => DateTime.Now > PurchaseDate.AddYears(1) ? InvestmentTerm.Short : InvestmentTerm.Long;
 
-    public User User { get; set; }
+    public User User { get; set; } = null!;
+    public int UserId { get; set; }
+
 
 
 }
