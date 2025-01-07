@@ -18,10 +18,10 @@ public class InvestmentPerformanceController : ControllerBase
 
 
     [HttpGet("{userId}", Name = "GetInvestmentsForUser")]
-    public async Task<ActionResult<IEnumerable<InvestmentListItemModel>>> Get(int userId)
+    public async Task<ActionResult<IEnumerable<InvestmentListItem>>> Get(int userId)
     {
         var investments = await _context.Investments.Where(x => x.UserId == userId)
-                                                    .Select(x => new InvestmentListItemModel(x))
+                                                    .Select(x => new InvestmentListItem(x))
                                                     .ToListAsync();
 
         if (investments == null)
@@ -32,7 +32,7 @@ public class InvestmentPerformanceController : ControllerBase
     }
 
     [HttpPost(Name = "GetInvestmentDetailsForUser")]
-    public async Task<ActionResult<Investment>> GetInvestmentDetails(InvestmentDetailsInputModel input)
+    public async Task<ActionResult<Investment>> GetInvestmentDetails(InvestmentDetailsInput input)
     {
         var investment = await _context.Investments.Where(x => x.UserId == input.UserId && x.Id == input.Id).FirstOrDefaultAsync();
 
