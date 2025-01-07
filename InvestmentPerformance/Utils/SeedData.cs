@@ -35,5 +35,8 @@ public static class SeedData
         new Investment {Id = 2, UserId=1, Name = Companies[1], NumShares = 100, CostBasisPerShare = 50.00m, CurrentPrice  = Prices[1], PurchaseDate= new DateTime(2022,11,17)},
         new Investment {Id = 3, UserId=1, Name = Companies[3], NumShares = 18, CostBasisPerShare = 102.57m, CurrentPrice  = Prices[3], PurchaseDate= new DateTime(2024,10,19)},
         new Investment {Id = 4, UserId=1, Name = Companies[0], NumShares = 28, CostBasisPerShare = 85.70m, CurrentPrice  = Prices[0], PurchaseDate= new DateTime(2025,1,1)},
+        new Investment {Id = 5, UserId=2, Name = Companies[0], NumShares = 35, CostBasisPerShare = 45.05m, CurrentPrice = Prices[0], PurchaseDate= new DateTime(2018,3,15)},
+        new Investment {Id = 6, UserId=2, Name = Companies[2], NumShares = 65, CostBasisPerShare = 27.85m, CurrentPrice = Prices[2], PurchaseDate= new DateTime(2018,3,15)},
+        new Investment {Id = 7, UserId=3, Name = Companies[5], NumShares = 208, CostBasisPerShare = 18.73m, CurrentPrice = Prices[5], PurchaseDate= new DateTime(2024,6,2)},
     ];
 };
