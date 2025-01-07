@@ -34,18 +34,18 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
-// Ensure the database schema exists. This will cause the seeding logic to be called.
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<IPContext>();
-    context.Database.EnsureCreated();
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    // Ensure the database schema exists. This will cause the seeding logic to be called.
+    // We will only seed when running in development
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<IPContext>();
+    context.Database.EnsureCreated();
 }
 
 app.UseHttpsRedirection();
