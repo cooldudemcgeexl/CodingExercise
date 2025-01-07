@@ -10,10 +10,11 @@ namespace InvestmentPerformance.Controllers;
 public class InvestmentPerformanceController : ControllerBase
 {
     private readonly IPContext _context;
-
-    public InvestmentPerformanceController(IPContext context)
+    private readonly ILogger<InvestmentPerformanceController> _logger;
+    public InvestmentPerformanceController(IPContext context, ILogger<InvestmentPerformanceController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
 
