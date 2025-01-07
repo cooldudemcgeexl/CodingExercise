@@ -1,14 +1,9 @@
 namespace InvestmentPerformance.Models;
 
-public enum InvestmentTerm
-{
-    Short,
-    Long
-}
 
 public class Investment
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
     public string? Name { get; set; }
     public int NumShares { get; set; }
     public decimal CostBasisPerShare { get; set; }
@@ -17,28 +12,28 @@ public class Investment
 
     public decimal TotalGainLoss => CurrentValue - (NumShares * CostBasisPerShare);
 
-    private DateTime PurchaseDate { get; set; }
-    public InvestmentTerm InvestmentTerm => DateTime.Now > PurchaseDate.AddYears(1) ? InvestmentTerm.Short : InvestmentTerm.Long;
+    public DateTime PurchaseDate { get; set; }
+    public string InvestmentTerm => DateTime.Now > PurchaseDate.AddYears(1) ? "Long" : "Short";
 
-    public User User { get; set; } = null!;
     public int UserId { get; set; }
+    public User User { get; set; } = null!;
 
 
 
 }
 
-public class InvestmentListItemModel
+public class InvestmentListItem
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
     public string? Name { get; set; }
-    public InvestmentListItemModel(Investment investment)
+    public InvestmentListItem(Investment investment)
     {
         Id = investment.Id;
         Name = investment.Name;
     }
 }
 
-public class InvestmentDetailsInputModel
+public class InvestmentDetailsInput
 {
     public long Id { get; set; }
     public int UserId { get; set; }
