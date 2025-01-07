@@ -8,7 +8,11 @@ public class IPContext : DbContext
     {
 
     }
+    public IPContext() : base()
+    {
 
-    public DbSet<User> Users { get; set; } = null!;
-    public DbSet<Investment> Investments { get; set; } = null!;
+    }
+
+    public virtual DbSet<User> Users { get; set; } = null!;
+    public virtual DbSet<Investment> Investments { get; set; } = null!;
 }
