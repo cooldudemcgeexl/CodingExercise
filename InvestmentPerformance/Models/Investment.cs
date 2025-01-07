@@ -22,6 +22,28 @@ public class Investment
 
 }
 
+public class InvestmentDetails
+{
+    public string? Name { get; set; }
+    public int NumShares { get; set; }
+    public decimal CostBasisPerShare { get; set; }
+    public decimal CurrentValue { get; set; }
+    public decimal CurrentPrice { get; set; }
+    public string InvestmentTerm { get; set; }
+    public decimal TotalGainLoss { get; set; }
+
+    public InvestmentDetails(Investment investment)
+    {
+        Name = investment.Name;
+        NumShares = investment.NumShares;
+        CostBasisPerShare = investment.CostBasisPerShare;
+        CurrentValue = investment.CurrentValue;
+        CurrentPrice = investment.CurrentPrice;
+        InvestmentTerm = investment.InvestmentTerm;
+        TotalGainLoss = investment.TotalGainLoss;
+    }
+}
+
 public class InvestmentListItem
 {
     public int Id { get; set; }

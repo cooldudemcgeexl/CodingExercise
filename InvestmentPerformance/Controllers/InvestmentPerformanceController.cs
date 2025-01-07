@@ -24,15 +24,15 @@ public class InvestmentPerformanceController : ControllerBase
                                                     .Select(x => new InvestmentListItem(x))
                                                     .ToListAsync();
 
-        if (investments == null)
+        if (investments == null || investments.Count == 0)
         {
             return NotFound();
         }
-        return investments;
+        return investments.OrderBy(x => x.Id).ToList();
     }
 
     [HttpPost(Name = "GetInvestmentDetailsForUser")]
-    public async Task<ActionResult<Investment>> GetInvestmentDetails(InvestmentDetailsInput input)
+    public async Task<ActionResult<InvestmentDetails>> GetInvestmentDetails(InvestmentDetailsInput input)
     {
         var investment = await _context.Investments.Where(x => x.UserId == input.UserId && x.Id == input.Id).FirstOrDefaultAsync();
 
@@ -40,6 +40,6 @@ public class InvestmentPerformanceController : ControllerBase
         {
             return NotFound();
         }
-        return investment;
+        return new InvestmentDetails(investment);
     }
 }
