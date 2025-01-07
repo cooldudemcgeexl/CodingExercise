@@ -5,9 +5,9 @@ namespace InvestmentPerformance.Utils;
 public static class SeedData
 {
     public static List<User> Users = [
-        new User {Id = 1, FirstName = "Nick", LastName = "Lay"},
-        new User {Id = 2, FirstName = "John", LastName = "Doe"},
-        new User {Id = 3, FirstName = "Bill", LastName = "Wilson"}
+        new User {UserId = 1, FirstName = "Nick", LastName = "Lay"},
+        new User {UserId = 2, FirstName = "John", LastName = "Doe"},
+        new User {UserId = 3, FirstName = "Bill", LastName = "Wilson"}
     ];
 
     // Disclaimer: These decimal literals were generated with ChatGPT

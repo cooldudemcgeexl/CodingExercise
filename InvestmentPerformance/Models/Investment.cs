@@ -57,6 +57,6 @@ public class InvestmentListItem
 
 public class InvestmentDetailsInput
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
     public int UserId { get; set; }
 }
