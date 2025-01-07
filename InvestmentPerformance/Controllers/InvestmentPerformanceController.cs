@@ -1,4 +1,5 @@
 using InvestmentPerformance.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace InvestmentPerformance.Controllers;
@@ -29,7 +30,7 @@ public class InvestmentPerformanceController : ControllerBase
         {
             return NotFound();
         }
-        return investments.OrderBy(x => x.Id).ToList();
+        return Ok(investments.OrderBy(x => x.Id).ToList());
     }
 
     [HttpPost(Name = "GetInvestmentDetailsForUser")]
@@ -41,6 +42,6 @@ public class InvestmentPerformanceController : ControllerBase
         {
             return NotFound();
         }
-        return new InvestmentDetails(investment);
+        return Ok(new InvestmentDetails(investment));
     }
 }
