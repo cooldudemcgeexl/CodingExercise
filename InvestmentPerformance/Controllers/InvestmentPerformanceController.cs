@@ -20,7 +20,7 @@ public class InvestmentPerformanceController : ControllerBase
 
 
     [HttpGet("{userId}", Name = "GetInvestmentsForUser")]
-    public async Task<ActionResult<IEnumerable<InvestmentListItem>>> Get(int userId)
+    public async Task<ActionResult<IEnumerable<InvestmentListItem>>> GetUserInvestments(int userId)
     {
         var investments = await _context.Investments.Where(x => x.UserId == userId)
                                                     .Select(x => new InvestmentListItem(x))
